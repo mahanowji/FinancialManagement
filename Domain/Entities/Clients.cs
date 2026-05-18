@@ -10,9 +10,6 @@ namespace Domain.Entities
 
         public string LastName { get; set; }
 
-        public string? Email { get; set; }
-
-        public string? Phone { get; set; }
         public EnumClientStatus Status { get; set; }
         public string? Tags { get; set; }
 
