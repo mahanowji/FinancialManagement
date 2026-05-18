@@ -4,7 +4,7 @@ using System.Reflection.Metadata;
 
 namespace Domain.Entities
 {
-    public class Clients : AuditEntity
+    public class Clients
     {
         public string FirstName { get; set; }
 
@@ -13,23 +13,24 @@ namespace Domain.Entities
         public string? Email { get; set; }
 
         public string? Phone { get; set; }
-        public ClientStatus Status { get; set; }
-
+        public EnumClientStatus Status { get; set; }
         public string? Tags { get; set; }
 
         public bool PortalEnabled { get; set; }
 
 
         #region Relations
+        public Guid? HouseholdId { get; set; }
+        public HouseHolds? Household { get; set; }
+        public Users? PortalUser { get; set; }
+        public Guid? PortalUserId { get; set; }
 
-        //public Guid? ServicePlanId { get; set; }
+        public Guid OperatorId { get; set; }
 
-        //public ServicePlan? ServicePlan { get; set; }
+        public Users Operator { get; set; }
 
-
-        //public Guid? PortalUserId { get; set; }
-
-        //public User? PortalUser { get; set; }
+        public Guid? ServicePlanId { get; set; }
+        public ServicePlans? ServicePlan { get; set; }
 
 
         //public ICollection<Note> Notes { get; set; }
@@ -48,5 +49,6 @@ namespace Domain.Entities
 
 
         #endregion
+
     }
 }
