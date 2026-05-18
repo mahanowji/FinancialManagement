@@ -10,12 +10,12 @@
         public BaseEntity()
         {
             CreatedDate = DateTime.Now;
-            CreatedBy = 0;
+            CreatedBy = Guid.Empty;
         }
 
         public T Id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public int CreatedBy { get; set; }
+        public Guid CreatedBy { get; set; }
         public bool Deleted { get; set; }
 
     }
@@ -30,14 +30,14 @@
 
 
         public DateTime? ModifiedDate { get; set; }
-        public int? ModifiedBy { get; set; }
+        public Guid? ModifiedBy { get; set; }
     }
 
-    public class BaseEntity : BaseEntity<int>
+    public class BaseEntity : BaseEntity<Guid>
     {
     }
 
-    public class AuditEntity : AuditEntity<int>
+    public class AuditEntity : AuditEntity<Guid>
     {
     }
 }
