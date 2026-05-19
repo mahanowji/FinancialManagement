@@ -19,6 +19,12 @@ namespace Domain.Entities
 
         public ICollection<HouseHolds> HouseHolds { get; set; } = new List<HouseHolds>();
         public ICollection<Clients> Clients { get; set; } = new List<Clients>();
+        public ICollection<Notes> Notes { get; set; } = new List<Notes>();
+        public ICollection<ServicePlans> ServicePlans { get; set; } = new List<ServicePlans>();
+        public ICollection<Tasks> Tasks { get; set; } = new List<Tasks>();
+        public ICollection<Communications> Communications { get; set; } = new List<Communications>();
+        public ICollection<Documents> Documents { get; set; } = new List<Documents>();
+        public ICollection<DocumentCategories> DocumentCategories { get; set; } = new List<DocumentCategories>();
 
 
         #endregion

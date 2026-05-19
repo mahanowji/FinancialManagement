@@ -1,10 +1,6 @@
 ﻿using CmsKit.Domain.Abstractions;
 using Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Domain.Entities
 {
@@ -22,8 +18,8 @@ namespace Domain.Entities
 
         #region Relations
         public ICollection<Clients> Clients { get; set; } = new List<Clients>();
-        public Guid UserId { get; set; }
-        public Users User { get; set; }
+        public Guid OperatorId { get; set; }
+        public Users Operator { get; set; }
         #endregion
     }
 }

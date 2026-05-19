@@ -30,13 +30,13 @@ namespace Domain.Entities
         public ServicePlans? ServicePlan { get; set; }
 
 
-        //public ICollection<Note> Notes { get; set; }
+        public ICollection<Notes> Notes { get; set; }
 
-        //public ICollection<TaskItem> Tasks { get; set; }
+        public ICollection<Tasks> Tasks { get; set; }
 
-        //public ICollection<Communication> Communications { get; set; }
+        public ICollection<Communications> Communications { get; set; }
 
-        //public ICollection<Document> Documents { get; set; }
+        public ICollection<Document> Documents { get; set; }
 
         //public ICollection<Invoice> Invoices { get; set; }
 
