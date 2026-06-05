@@ -1,0 +1,24 @@
+﻿using Domain.Abstractions;
+
+public interface IClientService
+{
+    Task<ServiceResult<Guid>> CreateAsync(CreateClientDto dto);
+
+    Task<ServiceResult<ClientDto>> GetByIdAsync(Guid id);
+
+    Task<ServiceResult<List<ClientDto>>> GetAllAsync();
+
+    Task<ServiceResult> UpdateAsync(
+        Guid id,
+        CreateClientDto dto);
+
+
+    Task<ServiceResult<Guid>>
+    CreateServicePlanAsync(CreateServicePlanDto dto);
+
+    Task<ServiceResult<List<ServicePlanDto>>>
+        GetServicePlansAsync();
+    Task<ServiceResult>
+    AddConsentAsync(CreateConsentDto dto);
+    Task<ServiceResult> DeleteAsync(Guid id);
+}

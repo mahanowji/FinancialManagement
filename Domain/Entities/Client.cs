@@ -1,8 +1,8 @@
-﻿using CmsKit.Domain.Abstractions;
-using FinancialAdvisor.Domain.Enums;
+﻿using Domain.Abstractions;
+using Domain.Enums;
 using System.Reflection.Metadata;
 
-namespace FinancialAdvisor.Domain.Entities;
+namespace Domain.Entities;
 
 public class Client : BaseEntity
 {

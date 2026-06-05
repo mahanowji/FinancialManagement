@@ -1,7 +1,7 @@
-﻿using CmsKit.Domain.Abstractions;
+﻿using Domain.Abstractions;
 using System.Reflection.Metadata;
 
-namespace FinancialAdvisor.Domain.Entities;
+namespace Domain.Entities;
 
 public class DocumentCategory : BaseEntity
 {

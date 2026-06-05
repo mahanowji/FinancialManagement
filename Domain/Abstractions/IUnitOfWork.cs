@@ -1,4 +1,4 @@
-﻿namespace CmsKit.Domain.Abstractions;
+﻿namespace Domain.Abstractions;
 
 public interface IUnitOfWork
 {

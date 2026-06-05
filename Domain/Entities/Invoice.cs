@@ -1,7 +1,7 @@
-﻿using CmsKit.Domain.Abstractions;
-using FinancialAdvisor.Domain.Enums;
+﻿using Domain.Abstractions;
+using Domain.Enums;
 
-namespace FinancialAdvisor.Domain.Entities;
+namespace Domain.Entities;
 
 public class Invoice : BaseEntity
 {

@@ -1,4 +1,4 @@
-﻿namespace FinancialAdvisor.Domain.Enums;
+﻿namespace Domain.Enums;
 
 public enum PaymentStatus
 {

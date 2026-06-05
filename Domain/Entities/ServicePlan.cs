@@ -1,6 +1,6 @@
-﻿using CmsKit.Domain.Abstractions;
+﻿using Domain.Abstractions;
 
-namespace FinancialAdvisor.Domain.Entities;
+namespace Domain.Entities;
 
 public class ServicePlan : BaseEntity
 {
