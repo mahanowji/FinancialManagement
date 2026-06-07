@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CmsKit.Infrastructure
+namespace Infrastructure
 {
     public sealed class ApplicationDbContext : DbContext
     {

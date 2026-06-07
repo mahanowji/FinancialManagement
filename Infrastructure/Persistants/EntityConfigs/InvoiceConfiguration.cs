@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Persistants.Configurations
+namespace Infrastructure.Persistants.EntityConfigs
 {
     public class InvoiceConfiguration : IEntityTypeConfiguration<Invoice>
     {

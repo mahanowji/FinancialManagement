@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Persistants.Configurations
+namespace Infrastructure.Persistants.EntityConfigs
 {
     public class AuditLogConfiguration : IEntityTypeConfiguration<AuditLog>
     {
@@ -23,7 +23,7 @@ namespace Infrastructure.Persistants.Configurations
                 .IsRequired();
 
             builder.Property(x => x.UpdatedAt)
-                .IsRequired(false);
+                .IsRequired();
 
             builder.HasOne(x => x.User)
                 .WithMany(u => u.AuditLogs)

@@ -1,7 +1,8 @@
 ﻿using Domain.Abstractions;
+using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-namespace CmsKit.Infrastructure.Persistants.Persistants
+namespace Infrastructure.Persistants
 {
     internal sealed class UnitOfWork : IUnitOfWork
     {

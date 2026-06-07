@@ -1,5 +1,4 @@
-﻿using CmsKit.Infrastructure;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistants.Repositories;

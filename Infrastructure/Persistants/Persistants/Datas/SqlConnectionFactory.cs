@@ -1,8 +1,8 @@
 ﻿using Domain.Abstractions;
+using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Data.SqlClient;
 
-namespace CmsKit.Infrastructure.Persistants.Persistants.Datas
+namespace Infrastructure.Persistants.Persistants.Datas
 {
     public sealed class SqlConnectionFactory : ISqlConnectionFactory
     {

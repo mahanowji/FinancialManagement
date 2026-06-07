@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace CmsKit.Application
+namespace Application
 {
     public static class ServiceCollector
     {
