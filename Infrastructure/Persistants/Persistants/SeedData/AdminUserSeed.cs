@@ -1,8 +1,8 @@
-﻿using Dapper;
+﻿using Application.Utilities;
+using Dapper;
 using Domain.Abstractions;
 using Domain.Entities;
 using Domain.Enums;
-using Infrastructure.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 

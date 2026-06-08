@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace Infrastructure.Utilities;
+namespace Application.Utilities;
 
 public static class SecurityHelper
 {

@@ -1,4 +1,5 @@
 ﻿using Domain.Abstractions;
+using Domain.IRepository;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,16 +12,20 @@ namespace Infrastructure.Persistants
 
         public UnitOfWork(ApplicationDbContext context,
             ISqlConnectionFactory sqlConnectionFactory,
-            IUserRepository userRepository)
+            IUserRepository userRepository,
+            IJwtRepository jwtRepository)
+
         {
             _context = context;
             SqlConnectionFactory = sqlConnectionFactory;
             UserRepository = userRepository;
+            JwtRepository = jwtRepository;  
         }
 
 
         public ISqlConnectionFactory SqlConnectionFactory { get; }
         public IUserRepository UserRepository { get; }
+        public IJwtRepository JwtRepository { get; }
 
         #region functionalities
 

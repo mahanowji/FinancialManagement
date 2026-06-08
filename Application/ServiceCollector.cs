@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
 {
@@ -7,7 +8,7 @@ namespace Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
 
-
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             return services;
 
