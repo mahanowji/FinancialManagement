@@ -1,4 +1,7 @@
-﻿using Domain.Abstractions;
+﻿using System;
+using Application.Common.Dto;
+using Domain.Abstractions;
+using Domain.Entities;
 
 public interface IClientService
 {
@@ -10,7 +13,7 @@ public interface IClientService
 
     Task<ServiceResult> UpdateAsync(
         Guid id,
-        CreateClientDto dto);
+        UpdateClientDto dto);
 
 
     Task<ServiceResult<Guid>>

@@ -9,4 +9,5 @@
     public string PhoneNumber { get; set; }
 
     public Guid AdvisorId { get; set; }
+    public Guid HouseholdId { get; set; }
 }

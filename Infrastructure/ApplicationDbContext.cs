@@ -13,6 +13,8 @@ namespace Infrastructure
         public DbSet<Communication> Communications { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<ServicePlan> ServicePlans { get; set; }
+        public DbSet<Consent> Consents { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

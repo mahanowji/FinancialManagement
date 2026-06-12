@@ -1,4 +1,5 @@
 ﻿using Domain.Abstractions;
+using Domain.Interfaces;
 using Domain.IRepository;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -13,19 +14,32 @@ namespace Infrastructure.Persistants
         public UnitOfWork(ApplicationDbContext context,
             ISqlConnectionFactory sqlConnectionFactory,
             IUserRepository userRepository,
-            IJwtRepository jwtRepository)
+            IJwtRepository jwtRepository,
+            IAuditLogRepository auditLogRepository,
+            IClientRepository clientRepository,
+            IServicePlanRepository servicePlanRepository,
+            IConsentRepository consentRepository)
 
         {
             _context = context;
             SqlConnectionFactory = sqlConnectionFactory;
             UserRepository = userRepository;
-            JwtRepository = jwtRepository;  
+            JwtRepository = jwtRepository;
+            AuditLogRepository = auditLogRepository;
+            ClientRepository = clientRepository;
+            ServicePlanRepository = servicePlanRepository;
+            ConsentRepository = consentRepository;
         }
 
 
         public ISqlConnectionFactory SqlConnectionFactory { get; }
         public IUserRepository UserRepository { get; }
         public IJwtRepository JwtRepository { get; }
+        public IAuditLogRepository AuditLogRepository { get; }
+        public IClientRepository ClientRepository { get; }
+
+        public IServicePlanRepository ServicePlanRepository { get; }
+        public IConsentRepository ConsentRepository { get; }
 
         #region functionalities
 

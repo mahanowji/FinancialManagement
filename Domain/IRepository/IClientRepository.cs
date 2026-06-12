@@ -11,4 +11,6 @@ public interface IClientRepository
     Task UpdateAsync(Client client);
 
     Task DeleteAsync(Client client);
+
+    Task<Client?> GetByEmailAsync(string email);
 }

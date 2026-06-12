@@ -28,5 +28,13 @@ namespace Infrastructure.Persistants.Repositories
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();
         }
+
+        public async Task<List<AuditLog>> GetByUserIdAsync(Guid userId)
+        {
+            return await _context.AuditLogs
+                .Where(x => x.UserId == userId)
+                .OrderByDescending(x => x.CreatedAt)
+                .ToListAsync();
+        }
     }
 }

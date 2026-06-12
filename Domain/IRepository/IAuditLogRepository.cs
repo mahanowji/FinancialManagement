@@ -6,4 +6,6 @@ public interface IAuditLogRepository
 
     Task<List<AuditLog>>
         GetAllAsync();
+
+    Task<List<AuditLog>> GetByUserIdAsync(Guid userId);
 }
