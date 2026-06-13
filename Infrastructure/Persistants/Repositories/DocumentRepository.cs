@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.Abstractions;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -48,6 +49,19 @@ namespace Infrastructure.Persistants.Repositories
         {
             return await _context.Documents
                 .FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
+        }
+
+
+
+        public async Task<int> GetRecentCountAsync(int days)
+        {
+            var since = DateTime.UtcNow.AddDays(-days);
+            return await _context.Documents.CountAsync(d => d.CreatedAt >= since);
+        }
+
+        public async Task<int> GetTotalCountAsync()
+        {
+            return await _context.Documents.CountAsync();
         }
     }
 }

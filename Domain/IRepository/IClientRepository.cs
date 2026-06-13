@@ -13,4 +13,6 @@ public interface IClientRepository
     Task DeleteAsync(Client client);
 
     Task<Client?> GetByEmailAsync(string email);
+    Task<int> GetCountAsync();
+    Task<int> GetActiveCountAsync();
 }

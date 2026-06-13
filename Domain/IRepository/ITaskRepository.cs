@@ -8,4 +8,6 @@ public interface ITaskRepository
 
     Task<List<TaskItem>>
         GetByClientIdAsync(Guid clientId);
+    Task<int> GetPendingCountAsync();
+    Task<int> GetOverdueCountAsync();
 }

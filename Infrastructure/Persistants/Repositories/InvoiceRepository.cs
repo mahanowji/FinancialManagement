@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistants.Repositories;
@@ -28,5 +29,17 @@ public class InvoiceRepository : IInvoiceRepository
         return await _context.Invoices
             .Where(x => x.ClientId == clientId && !x.IsDeleted)
             .ToListAsync();
+    }
+
+    public async Task<int> GetUnpaidCountAsync()
+    {
+        return await _context.Invoices.CountAsync(i => i.Status == InvoiceStatus.Pending);
+    }
+
+    public async Task<decimal> GetUnpaidTotalAmountAsync()
+    {
+        return await _context.Invoices
+            .Where(i => i.Status == InvoiceStatus.Pending)
+            .SumAsync(i => i.Amount);
     }
 }

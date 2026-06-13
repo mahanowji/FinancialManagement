@@ -12,6 +12,11 @@ public interface IUnitOfWork
     public IClientRepository ClientRepository{ get; }
     public IServicePlanRepository ServicePlanRepository { get; }
     public IConsentRepository ConsentRepository { get; }
+    public ICommunicationRepository CommunicationRepository { get; }
+
+    public ITaskRepository TaskRepository { get; }  
+    public IDocumentRepository DocumentRepository { get; }
+    public IInvoiceRepository InvoiceRepository { get; }
 
     Task<bool> CommitChangesAsync();
     Task DisposeAsync();

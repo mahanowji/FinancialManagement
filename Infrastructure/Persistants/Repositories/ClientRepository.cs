@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -64,6 +65,16 @@ namespace Infrastructure.Persistants.Repositories
             return await _context.Clients
                 .Include(c => c.Household)
                 .FirstOrDefaultAsync(c => c.Email == email);
+        }
+
+        public async Task<int> GetCountAsync()
+        {
+            return await _context.Clients.CountAsync();
+        }
+
+        public async Task<int> GetActiveCountAsync()
+        {
+            return await _context.Clients.CountAsync(c => c.Status == ClientStatus.Active);
         }
     }
 }

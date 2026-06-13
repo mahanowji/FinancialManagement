@@ -8,4 +8,6 @@ public interface IInvoiceRepository
 
     Task<List<Invoice>>
         GetByClientIdAsync(Guid clientId);
+    Task<int> GetUnpaidCountAsync();
+    Task<decimal> GetUnpaidTotalAmountAsync();
 }

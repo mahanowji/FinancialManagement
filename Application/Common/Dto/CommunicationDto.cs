@@ -5,6 +5,7 @@ namespace Application.Common.Dto
 {
     public class CommunicationDto
     {
+        public Guid Id { get; set; }
         public CommunicationType Type { get; set; }
 
         public string Description { get; set; } = null!;
@@ -13,6 +14,5 @@ namespace Application.Common.Dto
 
         public Guid ClientId { get; set; }
 
-        public Client Client { get; set; } = null!;
     }
 }

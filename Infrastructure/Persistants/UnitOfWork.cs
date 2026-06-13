@@ -18,7 +18,11 @@ namespace Infrastructure.Persistants
             IAuditLogRepository auditLogRepository,
             IClientRepository clientRepository,
             IServicePlanRepository servicePlanRepository,
-            IConsentRepository consentRepository)
+            IConsentRepository consentRepository,
+            ICommunicationRepository communicationRepository,
+            IDocumentRepository documentRepository,
+            IInvoiceRepository invoiceRepository,
+            ITaskRepository taskRepository)
 
         {
             _context = context;
@@ -29,6 +33,10 @@ namespace Infrastructure.Persistants
             ClientRepository = clientRepository;
             ServicePlanRepository = servicePlanRepository;
             ConsentRepository = consentRepository;
+            CommunicationRepository = communicationRepository;
+            DocumentRepository = documentRepository;
+            InvoiceRepository = invoiceRepository;
+            TaskRepository = taskRepository;    
         }
 
 
@@ -40,6 +48,14 @@ namespace Infrastructure.Persistants
 
         public IServicePlanRepository ServicePlanRepository { get; }
         public IConsentRepository ConsentRepository { get; }
+
+        public ICommunicationRepository CommunicationRepository { get; }
+
+        public IDocumentRepository DocumentRepository { get; }
+
+        public IInvoiceRepository InvoiceRepository { get; } 
+        
+        public ITaskRepository TaskRepository { get; }  
 
         #region functionalities
 

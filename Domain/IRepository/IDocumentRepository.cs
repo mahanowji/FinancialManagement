@@ -12,4 +12,6 @@ public interface IDocumentRepository
         GetByClientIdAsync(Guid clientId);
 
     Task DeleteAsync(Document document);
+    Task<int> GetRecentCountAsync(int days);
+    Task<int> GetTotalCountAsync();
 }

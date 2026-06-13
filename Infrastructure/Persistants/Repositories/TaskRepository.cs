@@ -29,4 +29,19 @@ public class TaskRepository : ITaskRepository
         return await _context.Tasks
             .FirstOrDefaultAsync(x => x.Id == id);
     }
+
+
+    public async Task<int> GetPendingCountAsync()
+    {
+  
+        return await _context.Tasks
+            .CountAsync(t => !t.IsCompleted);
+    }
+
+    public async Task<int> GetOverdueCountAsync()
+    {
+
+        return await _context.Tasks
+            .CountAsync(t => !t.IsCompleted && t.DueDate < DateTime.UtcNow);
+    }
 }
