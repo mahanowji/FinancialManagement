@@ -1,4 +1,5 @@
-﻿using Domain.Abstractions;
+﻿using Application.Common.Dto;
+using Domain.Abstractions;
 
 public interface IUserService
 {
@@ -13,4 +14,7 @@ public interface IUserService
     Task<ServiceResult<Guid>> CreateHouseholdAsync(CreateHouseholdDto dto);
 
     Task<ServiceResult<List<HouseholdDto>>> GetHouseholdsAsync();
+
+
+    Task<ServiceResult<Guid>> CreateClientUserAsync(CreateClientUserDto dto);
 }

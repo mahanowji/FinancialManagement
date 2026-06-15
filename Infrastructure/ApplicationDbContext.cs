@@ -11,6 +11,7 @@ namespace Infrastructure
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<Communication> Communications { get; set; }
+        public DbSet<Household> Households { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<ServicePlan> ServicePlans { get; set; }

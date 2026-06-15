@@ -76,5 +76,12 @@ namespace Infrastructure.Persistants.Repositories
         {
             return await _context.Clients.CountAsync(c => c.Status == ClientStatus.Active);
         }
+
+
+        public async Task<List<Client>> GetAllClientUserAsync(Guid id)
+        {
+            return await _context.Clients.Where(x=>x.AdvisorId == id)
+                .ToListAsync();
+        }
     }
 }

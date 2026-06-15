@@ -17,6 +17,9 @@ public interface IUnitOfWork
     public ITaskRepository TaskRepository { get; }  
     public IDocumentRepository DocumentRepository { get; }
     public IInvoiceRepository InvoiceRepository { get; }
+    public IPaymentRepository PaymentRepository { get; }
+
+    public IHouseHoldRepository HouseholdRepository { get; }    
 
     Task<bool> CommitChangesAsync();
     Task DisposeAsync();

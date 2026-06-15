@@ -10,4 +10,6 @@ public interface IInvoiceRepository
         GetByClientIdAsync(Guid clientId);
     Task<int> GetUnpaidCountAsync();
     Task<decimal> GetUnpaidTotalAmountAsync();
+    Task<Invoice?> GetByNumberAsync(string invoiceNumber);
+    Task UpdateAsync(Invoice invoice);
 }

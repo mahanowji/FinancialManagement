@@ -22,7 +22,9 @@ namespace Infrastructure.Persistants
             ICommunicationRepository communicationRepository,
             IDocumentRepository documentRepository,
             IInvoiceRepository invoiceRepository,
-            ITaskRepository taskRepository)
+            ITaskRepository taskRepository,
+            IPaymentRepository paymentRepository,
+            IHouseHoldRepository houseHoldRepository)
 
         {
             _context = context;
@@ -36,7 +38,9 @@ namespace Infrastructure.Persistants
             CommunicationRepository = communicationRepository;
             DocumentRepository = documentRepository;
             InvoiceRepository = invoiceRepository;
-            TaskRepository = taskRepository;    
+            TaskRepository = taskRepository; 
+            PaymentRepository = paymentRepository;
+            HouseholdRepository = houseHoldRepository;  
         }
 
 
@@ -56,6 +60,9 @@ namespace Infrastructure.Persistants
         public IInvoiceRepository InvoiceRepository { get; } 
         
         public ITaskRepository TaskRepository { get; }  
+
+        public IPaymentRepository PaymentRepository { get; }    
+        public IHouseHoldRepository HouseholdRepository { get; }    
 
         #region functionalities
 

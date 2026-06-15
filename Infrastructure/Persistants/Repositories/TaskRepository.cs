@@ -44,4 +44,10 @@ public class TaskRepository : ITaskRepository
         return await _context.Tasks
             .CountAsync(t => !t.IsCompleted && t.DueDate < DateTime.UtcNow);
     }
+
+    public async Task UpdateAsync(TaskItem task)
+    {
+        _context.Tasks.Update(task);
+        await _context.SaveChangesAsync();
+    }
 }

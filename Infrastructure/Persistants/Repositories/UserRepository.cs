@@ -35,4 +35,18 @@ public class UserRepository : IUserRepository
 
         return Task.CompletedTask;
     }
+
+
+    public async Task<List<User>> GetAllAsync()
+    {
+        return await _context.Users
+            .OrderBy(u => u.FirstName)
+            .ThenBy(u => u.LastName)
+            .ToListAsync();
+    }
+
+    public async Task DeleteAsync(User user)
+    {
+        _context.Users .Remove(user);   
+    }
 }

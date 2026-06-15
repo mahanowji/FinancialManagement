@@ -15,4 +15,5 @@ public interface IClientRepository
     Task<Client?> GetByEmailAsync(string email);
     Task<int> GetCountAsync();
     Task<int> GetActiveCountAsync();
+    Task<List<Client>> GetAllClientUserAsync(Guid id);
 }

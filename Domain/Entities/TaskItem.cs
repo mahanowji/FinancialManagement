@@ -11,6 +11,7 @@ public class TaskItem : BaseEntity
     public DateTime DueDate { get; set; }
 
     public bool IsCompleted { get; set; }
+    public DateTime CompletedAt { get; set; }
 
     public Guid ClientId { get; set; }
 

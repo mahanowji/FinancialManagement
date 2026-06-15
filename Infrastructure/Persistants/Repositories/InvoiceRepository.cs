@@ -18,6 +18,14 @@ public class InvoiceRepository : IInvoiceRepository
         await _context.Invoices.AddAsync(invoice);
     }
 
+
+    public Task UpdateAsync(Invoice invoice)
+    {
+        _context.Invoices.Update(invoice);
+
+        return Task.CompletedTask;
+    }
+
     public async Task<Invoice?> GetByIdAsync(Guid id)
     {
         return await _context.Invoices
@@ -41,5 +49,12 @@ public class InvoiceRepository : IInvoiceRepository
         return await _context.Invoices
             .Where(i => i.Status == InvoiceStatus.Pending)
             .SumAsync(i => i.Amount);
+    }
+
+
+    public async Task<Invoice?> GetByNumberAsync(string invoiceNumber)
+    {
+        return await _context.Invoices
+            .FirstOrDefaultAsync(i => i.InvoiceNumber == invoiceNumber);
     }
 }
