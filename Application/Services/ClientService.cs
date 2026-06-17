@@ -222,5 +222,40 @@ namespace Application.Services
 
             return new ServiceResult();
         }
+
+        public async Task<ServiceResult<ClientDto>> GetByUserIdAsync(Guid userId)
+        {
+            try
+            {
+
+                var client = await _unitOfWork.ClientRepository.GetByUserIdAsync(userId);
+
+                if (client == null)
+                    return new ServiceResult<ClientDto>($"No client found for this user");
+
+                // تبدیل به DTO
+                var dto = new ClientDto
+                {
+                    Id = client.Id,
+                    FullName = $"{client.FirstName} {client.LastName}",
+                    Email = client.Email,
+                    PhoneNumber = client.PhoneNumber,   
+
+                };
+
+                // ثبت لاگ (اختیاری)
+                await _auditLogService.CreateAsync(new CreateAuditLogDto
+                {
+                    Action = $"Client retrieved by UserId: {userId}",
+                    UserId = _currentUserService.GetCurrentUserId()
+                });
+
+                return new ServiceResult<ClientDto>(dto);
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult<ClientDto>($"Error getting client by user ID: {ex.Message}");
+            }
+        }
     }
 }

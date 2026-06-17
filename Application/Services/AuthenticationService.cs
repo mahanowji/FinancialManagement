@@ -1,4 +1,5 @@
 ﻿using Application.Common;
+using Application.Common.Dto;
 using Application.Utilities;
 using Domain.Abstractions;
 using System;
@@ -18,7 +19,7 @@ namespace Application.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<ServiceResult> ChangePasswordAsync(Guid userId, string currentPassword, string newPassword)
+        public async Task<ServiceResult> ChangePasswordAsync(Guid userId, ChangePasswordRequestDto changePasswordRequestDto)
         {
             var user = await unitOfWork.UserRepository.GetByIdAsync(userId);
 
@@ -27,14 +28,14 @@ namespace Application.Services
                 return new ServiceResult<LoginResultDto>(MessageResponse.UserNotFound);
             }
 
-            var isValidPassword = SecurityHelper.VerifyPassword(currentPassword, user.PasswordHash);
+            var isValidPassword = SecurityHelper.VerifyPassword(changePasswordRequestDto.CurrentPassword, user.PasswordHash);
 
             if (!isValidPassword)
             {
                 return new ServiceResult<LoginResultDto>(MessageResponse.loginfailed);
             }
 
-            user.PasswordHash =SecurityHelper.HashPassword(newPassword);
+            user.PasswordHash =SecurityHelper.HashPassword(changePasswordRequestDto.NewPassword);
 
             await unitOfWork.UserRepository.UpdateAsync(user);
             await unitOfWork.CommitChangesAsync();
@@ -72,9 +73,5 @@ namespace Application.Services
             return new ServiceResult<LoginResultDto>(result);
         }
 
-        public Task<ServiceResult> LogoutAsync(Guid userId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

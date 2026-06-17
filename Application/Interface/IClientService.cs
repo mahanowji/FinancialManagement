@@ -24,4 +24,5 @@ public interface IClientService
     Task<ServiceResult>
     AddConsentAsync(CreateConsentDto dto);
     Task<ServiceResult> DeleteAsync(Guid id);
+    Task<ServiceResult<ClientDto>> GetByUserIdAsync(Guid userId);
 }

@@ -16,4 +16,5 @@ public interface IClientRepository
     Task<int> GetCountAsync();
     Task<int> GetActiveCountAsync();
     Task<List<Client>> GetAllClientUserAsync(Guid id);
+    Task<Client?> GetByUserIdAsync(Guid userId);
 }

@@ -80,8 +80,18 @@ namespace Infrastructure.Persistants.Repositories
 
         public async Task<List<Client>> GetAllClientUserAsync(Guid id)
         {
-            return await _context.Clients.Where(x=>x.AdvisorId == id)
+            return await _context.Clients.Where(x => x.AdvisorId == id)
                 .ToListAsync();
+        }
+
+
+
+        public async Task<Client?> GetByUserIdAsync(Guid userId)
+        {
+            return await _context.Clients
+                .Include(c => c.Household)
+                .Include(c => c.Advisor)
+                .FirstOrDefaultAsync(c => c.Id == userId);
         }
     }
 }
