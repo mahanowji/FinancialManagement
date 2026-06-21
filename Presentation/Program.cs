@@ -1,6 +1,6 @@
 using Application;
 using Infrastructure;
-using Infrastructure.Persistants.Persistants.SeedData;
+using Infrastructure.Persistants.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 

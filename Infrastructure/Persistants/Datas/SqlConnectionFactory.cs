@@ -2,7 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace Infrastructure.Persistants.Persistants.Datas
+namespace Infrastructure.Persistants.Datas
 {
     public sealed class SqlConnectionFactory : ISqlConnectionFactory
     {

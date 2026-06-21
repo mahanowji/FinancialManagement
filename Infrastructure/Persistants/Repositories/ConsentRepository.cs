@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Persistants.Repositories
 {
     public class ConsentRepository : IConsentRepository
     {

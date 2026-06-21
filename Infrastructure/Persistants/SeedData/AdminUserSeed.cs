@@ -6,7 +6,7 @@ using Domain.Enums;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure.Persistants.Persistants.SeedData
+namespace Infrastructure.Persistants.SeedData
 {
     public static class AdminUserSeed
     {
