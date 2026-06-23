@@ -2,7 +2,7 @@
 using Domain.IRepository;
 using Infrastructure.Auth;
 using Infrastructure.Persistants;
-using Infrastructure.Persistants.Persistants.Datas;
+using Infrastructure.Persistants.Datas;
 using Infrastructure.Persistants.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

@@ -25,14 +25,14 @@ namespace Application.Services
 
             if (user is null)
             {
-                return new ServiceResult<LoginResultDto>(MessageResponse.UserNotFound);
+                return new ServiceResult<LoginResultDto>("user is not found");
             }
 
             var isValidPassword = SecurityHelper.VerifyPassword(changePasswordRequestDto.CurrentPassword, user.PasswordHash);
 
             if (!isValidPassword)
             {
-                return new ServiceResult<LoginResultDto>(MessageResponse.loginfailed);
+                return new ServiceResult<LoginResultDto>("log failed");
             }
 
             user.PasswordHash =SecurityHelper.HashPassword(changePasswordRequestDto.NewPassword);
@@ -49,14 +49,14 @@ namespace Application.Services
 
             if (user is null)
             {
-                return new ServiceResult<LoginResultDto>(MessageResponse.UserNotFound);
+                return new ServiceResult<LoginResultDto>("user not found");
             }
 
             var isValidPassword = SecurityHelper.VerifyPassword(dto.Password, user.PasswordHash);
 
             if (!isValidPassword)
             {
-                return new ServiceResult<LoginResultDto>(MessageResponse.loginfailed);
+                return new ServiceResult<LoginResultDto>("login failed");
             }
 
 
