@@ -2,14 +2,14 @@
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 
-public class AuditService : IAuditLogService
+public class AuditLogService : IAuditLogService
 {
-    private readonly IHttpContextAccessor _httpContextAccessor;
+
     private readonly IUnitOfWork unitOfWork;
 
-    public AuditService(IHttpContextAccessor httpContextAccessor, IUnitOfWork _unitOfWork)
+    public AuditLogService( IUnitOfWork _unitOfWork)
     {
-        _httpContextAccessor = httpContextAccessor;
+
        unitOfWork = _unitOfWork;
     }
 
