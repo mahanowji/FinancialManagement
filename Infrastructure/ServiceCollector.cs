@@ -1,4 +1,5 @@
 ﻿using Domain.Abstractions;
+using Domain.Interfaces;
 using Domain.IRepository;
 using Infrastructure.Auth;
 using Infrastructure.Persistants;
@@ -42,8 +43,11 @@ namespace Infrastructure
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<ICommunicationRepository, CommunicationRepository>();
+            services.AddScoped<IConsentRepository, ConsentRepository>();
+            services.AddScoped<IHouseHoldRepository, HouseHoldRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<IServicePlanRepository, ServicePlanRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IAuditLogRepository, AuditLogRepository>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
