@@ -16,7 +16,7 @@ namespace Infrastructure.Persistants.SeedData
             var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
             using var connection = unitOfWork.SqlConnectionFactory.CreateConnection();
 
-            var Email = "mahanowji1380@gmail.com";
+            var Email = "hashemtoobai@gmail.com";
 
             var exists = connection.ExecuteScalar<bool>(
                 "SELECT COUNT(1) FROM Users WHERE Email = @Email",
