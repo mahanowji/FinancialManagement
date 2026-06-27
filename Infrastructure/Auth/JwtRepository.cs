@@ -42,7 +42,7 @@ namespace Infrastructure.Auth
                 issuer: _settings.Issuer,
                 audience: _settings.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(_settings.ExpireMinutes),
+                expires: DateTime.UtcNow.AddMinutes(_settings.ExpirationMinutes),
                 signingCredentials: credentials);
 
 

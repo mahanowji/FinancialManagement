@@ -14,6 +14,6 @@ namespace Infrastructure.Auth
 
         public string Audience { get; set; } = null!;
 
-        public int ExpireMinutes { get; set; }
+        public int ExpirationMinutes { get; set; }
     }
 }

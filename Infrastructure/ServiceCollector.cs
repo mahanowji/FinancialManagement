@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 namespace Infrastructure
@@ -57,10 +58,9 @@ namespace Infrastructure
 
         }
 
-
         public static void AddJwtAuthentication(
-            this IServiceCollection services,
-            IConfiguration configuration)
+        this IServiceCollection services,
+        IConfiguration configuration)
         {
             var jwtSettings =
                 configuration.GetSection("JwtSettings")
@@ -83,7 +83,6 @@ namespace Infrastructure
             .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
-
                 options.SaveToken = true;
 
                 options.TokenValidationParameters =
@@ -101,11 +100,51 @@ namespace Infrastructure
                             new SymmetricSecurityKey(
                                 Encoding.UTF8.GetBytes(jwtSettings.SecretKey)),
 
-                        ClockSkew = TimeSpan.Zero
+                        ClockSkew = TimeSpan.Zero,
+
+                        RoleClaimType = ClaimTypes.Role
                     };
+
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        Console.WriteLine("Authorization Header:");
+                        Console.WriteLine(context.Request.Headers["Authorization"]);
+                        return Task.CompletedTask;
+                    },
+
+                    OnTokenValidated = context =>
+                    {
+                        Console.WriteLine("✅ TOKEN VALIDATED");
+
+                        foreach (var claim in context.Principal!.Claims)
+                        {
+                            Console.WriteLine($"{claim.Type} = {claim.Value}");
+                        }
+
+                        return Task.CompletedTask;
+                    },
+
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine("❌ AUTHENTICATION FAILED");
+                        Console.WriteLine(context.Exception.ToString());
+                        return Task.CompletedTask;
+                    },
+
+                    OnChallenge = context =>
+                    {
+                        Console.WriteLine("❌ CHALLENGE");
+                        Console.WriteLine($"Error: {context.Error}");
+                        Console.WriteLine($"Description: {context.ErrorDescription}");
+                        return Task.CompletedTask;
+                    }
+                };
             });
 
             services.AddAuthorization();
         }
+
     }
 }
