@@ -51,6 +51,7 @@ namespace Infrastructure
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IAuditLogRepository, AuditLogRepository>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<INotificationEventRepository, NotificationEventRepository>();
             services.AddScoped<IJwtRepository, JwtRepository>();
 
 

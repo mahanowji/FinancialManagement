@@ -20,6 +20,7 @@ public interface IUnitOfWork
     public IPaymentRepository PaymentRepository { get; }
 
     public IHouseHoldRepository HouseholdRepository { get; }    
+    public INotificationEventRepository NotificationEventRepository { get; }    
 
     Task<bool> CommitChangesAsync();
     Task DisposeAsync();

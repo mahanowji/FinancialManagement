@@ -24,7 +24,8 @@ namespace Infrastructure.Persistants
             IInvoiceRepository invoiceRepository,
             ITaskRepository taskRepository,
             IPaymentRepository paymentRepository,
-            IHouseHoldRepository houseHoldRepository)
+            IHouseHoldRepository houseHoldRepository,
+            INotificationEventRepository notificationEventRepository)
 
         {
             _context = context;
@@ -40,7 +41,8 @@ namespace Infrastructure.Persistants
             InvoiceRepository = invoiceRepository;
             TaskRepository = taskRepository; 
             PaymentRepository = paymentRepository;
-            HouseholdRepository = houseHoldRepository;  
+            HouseholdRepository = houseHoldRepository;
+            NotificationEventRepository = notificationEventRepository;
         }
 
 
@@ -60,6 +62,8 @@ namespace Infrastructure.Persistants
         public IInvoiceRepository InvoiceRepository { get; } 
         
         public ITaskRepository TaskRepository { get; }  
+
+        public INotificationEventRepository NotificationEventRepository { get; }
 
         public IPaymentRepository PaymentRepository { get; }    
         public IHouseHoldRepository HouseholdRepository { get; }    

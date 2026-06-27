@@ -16,6 +16,7 @@ namespace Infrastructure
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<ServicePlan> ServicePlans { get; set; }
         public DbSet<Consent> Consents { get; set; }
+        public DbSet<NotificationEvent> NotificationEvents { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
